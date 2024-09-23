@@ -33,6 +33,7 @@ console.log('Will read file!') */
 // Server
 
 const server =http.createServer((req, res)=>{
+    console.log(res)
     res.end("Hello from the server")
 }) 
 
