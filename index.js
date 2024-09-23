@@ -1,4 +1,6 @@
 const fs = require('fs')
+const http = require('http');
+
 /*
 const textIn = fs.readFileSync('./txt/input.txt','utf-8')
 
@@ -10,8 +12,9 @@ console.log('file Written')
  */
 
 //Non-blocking, asynchronous
-
+/* 
 fs.readFile('./txt/start.txt','utf-8',(err,data1)=>{
+    
     fs.readFile(`./txt/${data1}.txt`,'utf-8',(err,data2)=>{
     console.log(data2)
     fs.readFile(`./txt/append.txt`,'utf-8',(err,data3)=>{
@@ -24,4 +27,15 @@ fs.readFile('./txt/start.txt','utf-8',(err,data1)=>{
     
 })
 
-console.log('Will read file!')
+console.log('Will read file!') */
+
+
+// Server
+
+const server =http.createServer((req, res)=>{
+    res.end("Hello from the server")
+}) 
+
+server.listen(8000,'127.0.0.1',()=>{
+    console.log('listening to request from port 800');
+})
