@@ -38,19 +38,24 @@ const dataObj = JSON.parse(data)
 
 const server =http.createServer((req, res)=>{
     const pathName = req.url
+
+    // overview page
     if(pathName === '/' || pathName=== '/overview')
         {
 
             res.end('This is the Overview')
         } 
+        // product page
     else if(pathName === '/product'){
 
         res.end('This is the Product ')
     }
+    // api page
     else if(pathName === '/api'){
         res.end(data)
         
     }
+    // not Found page
     else {
         res.end('Page not Found!')
     }
