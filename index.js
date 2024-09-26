@@ -1,6 +1,5 @@
 
 const http = require('http')
-const path = require('path')
 const fs = require('fs')
 
 
@@ -10,8 +9,10 @@ const replaceTemplate =(temp,product) =>{
           output = output.replace(/{%IMAGE%}/g,product.image)
           output = output.replace(/{%QUANTITY%}/g,product.price)
           output = output.replace(/{%FROM%}/g,product.from)
+          output = output.replace(/{%PRICE%}/g,product.price)
           output = output.replace(/{%NUTRIENTS%}/g,product.nutrients)
           output = output.replace(/{%ORGANIC%}/g,product.nutrients)
+          if(!product.organic) output = output.replace(/{%ORGANIC%}/g, 'not-organic')
           return output
 }
 
